@@ -8,9 +8,16 @@ import androidx.navigation.ui.setupWithNavController
 import com.sasquer.imagesgallery.R
 import com.sasquer.imagesgallery.navigation.HasNavController
 import com.sasquer.imagesgallery.utils.setupToolbar
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasAndroidInjector
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), HasNavController {
+class MainActivity : AppCompatActivity(), HasAndroidInjector, HasNavController {
+
+    @Inject
+    lateinit var androidInjector: DispatchingAndroidInjector<Any>
 
     private val destinationChangeListener =
         NavController.OnDestinationChangedListener { controller, destination, arguments ->
@@ -38,4 +45,6 @@ class MainActivity : AppCompatActivity(), HasNavController {
     override val navController: NavController by lazy(LazyThreadSafetyMode.NONE) {
         findNavController(R.id.nav_host_fragment)
     }
+
+    override fun androidInjector(): AndroidInjector<Any> = androidInjector
 }

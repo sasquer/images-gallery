@@ -7,15 +7,22 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.sasquer.imagesgallery.R
+import com.sasquer.imagesgallery.di.Injectable
 import com.sasquer.imagesgallery.navigation.Navigation
 import javax.inject.Inject
 
-class MainFragment : Fragment() {
+class MainFragment : Fragment(), Injectable {
     @Inject
     lateinit var factory: ViewModelProvider.Factory
 
     @Inject
     lateinit var navigation: Navigation
+
+    companion object {
+        fun newInstance(): MainFragment {
+            return MainFragment()
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
