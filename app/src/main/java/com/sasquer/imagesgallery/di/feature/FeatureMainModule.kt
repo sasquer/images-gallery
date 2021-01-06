@@ -26,7 +26,7 @@ interface MainFragmentModule {
 }
 
 class MainViewModelFactory @Inject constructor(
-    private val interactor: ImagesInteractor
+    private val interactor: ImagesInteractor,
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         @Suppress("UNCHECKED_CAST")
