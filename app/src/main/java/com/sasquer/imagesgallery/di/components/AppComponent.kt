@@ -2,6 +2,7 @@ package com.sasquer.imagesgallery.di.components
 
 import com.sasquer.imagesgallery.App
 import com.sasquer.imagesgallery.di.feature.FeatureMainHostModule
+import com.sasquer.imagesgallery.di.modules.DataModule
 import com.sasquer.imagesgallery.di.modules.NavModule
 import com.sasquer.imagesgallery.di.scopes.PerApplication
 import dagger.BindsInstance
@@ -13,7 +14,8 @@ import dagger.android.support.AndroidSupportInjectionModule
     modules = [
         AndroidSupportInjectionModule::class,
         FeatureMainHostModule::class,
-        NavModule::class
+        NavModule::class,
+        DataModule::class
     ]
 )
 interface AppComponent {

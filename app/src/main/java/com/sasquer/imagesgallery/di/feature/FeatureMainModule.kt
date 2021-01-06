@@ -2,6 +2,7 @@ package com.sasquer.imagesgallery.di.feature
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.sasquer.imagesgallery.data.interactor.ImagesInteractor
 import com.sasquer.imagesgallery.di.scopes.PerFragment
 import com.sasquer.imagesgallery.ui.main.MainFragment
 import com.sasquer.imagesgallery.ui.main.MainViewModel
@@ -24,9 +25,11 @@ interface MainFragmentModule {
     fun MainViewModelFactory.provideViewModelFactory(): ViewModelProvider.Factory
 }
 
-class MainViewModelFactory @Inject constructor() : ViewModelProvider.Factory {
+class MainViewModelFactory @Inject constructor(
+    private val interactor: ImagesInteractor
+) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         @Suppress("UNCHECKED_CAST")
-        return MainViewModel() as T
+        return MainViewModel(interactor) as T
     }
 }

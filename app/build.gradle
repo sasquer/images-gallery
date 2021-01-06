@@ -17,6 +17,9 @@ android {
         versionCode 1
         versionName "1.0"
 
+        buildConfigField 'String', 'BASE_URL', '"https://api.unsplash.com"'
+        buildConfigField 'String', 'API_KEY', '"QFnTfneUkCv6wiK-P8EDDv4s2p-PdBy4Td8J9g6WSUw"'
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
