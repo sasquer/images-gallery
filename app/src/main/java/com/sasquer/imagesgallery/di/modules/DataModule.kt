@@ -4,7 +4,7 @@ import androidx.room.Room
 import com.sasquer.imagesgallery.App
 import com.sasquer.imagesgallery.BuildConfig
 import com.sasquer.imagesgallery.data.db.AppDatabase
-import com.sasquer.imagesgallery.data.db.enteties.ImagesDao
+import com.sasquer.imagesgallery.data.db.dao.ImagesDao
 import com.sasquer.imagesgallery.data.interactor.ImagesInteractor
 import com.sasquer.imagesgallery.data.interactor.ImagesInteractorImpl
 import com.sasquer.imagesgallery.data.network.ImagesApi

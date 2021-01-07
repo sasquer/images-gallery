@@ -16,8 +16,11 @@
         tools:context=".ui.main.MainFragment">
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeToRefresh"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:onRefreshListener="@{() -> viewModel.loadImages(1)}"
+            app:refreshing="@{viewModel.isUpdating()}">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvImages"
@@ -25,10 +28,6 @@
                 android:layout_height="0dp"
                 android:clipToPadding="false"
                 android:paddingTop="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 tools:listitem="@layout/list_item_image" />
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

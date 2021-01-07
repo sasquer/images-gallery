@@ -2,8 +2,8 @@ package com.sasquer.imagesgallery.data.repository
 
 import androidx.lifecycle.LiveData
 import com.sasquer.imagesgallery.data.ImagesResponse
+import com.sasquer.imagesgallery.data.db.dao.ImagesDao
 import com.sasquer.imagesgallery.data.db.enteties.ImageInfo
-import com.sasquer.imagesgallery.data.db.enteties.ImagesDao
 import com.sasquer.imagesgallery.data.network.ImagesApi
 import io.reactivex.Single
 import javax.inject.Inject
