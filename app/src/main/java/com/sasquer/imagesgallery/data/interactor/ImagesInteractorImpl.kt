@@ -1,5 +1,6 @@
 package com.sasquer.imagesgallery.data.interactor
 
+import androidx.lifecycle.LiveData
 import com.sasquer.imagesgallery.data.db.enteties.ImageInfo
 import com.sasquer.imagesgallery.data.mapper.ImageMapper
 import com.sasquer.imagesgallery.data.repository.ImagesRepository
@@ -11,8 +12,16 @@ class ImagesInteractorImpl @Inject constructor(
     private val mapper: ImageMapper
 ) : ImagesInteractor {
 
-    override fun getImages(page: Int): Single<List<ImageInfo>> {
-        return repository.getRemoteImages(page = page)
+    override fun getRemoteImages(page: Int): Single<List<ImageInfo>> {
+        return repository.getRemoteImages(page)
             .map { list -> mapper.invoke(list) }
+    }
+
+    override fun saveImages(images: List<ImageInfo>) {
+        repository.saveImages(images)
+    }
+
+    override fun getImages(): LiveData<List<ImageInfo>> {
+        return repository.getStoredImages()
     }
 }

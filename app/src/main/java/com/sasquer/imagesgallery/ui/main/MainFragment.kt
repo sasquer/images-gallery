@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.sasquer.imagesgallery.R
@@ -54,8 +53,8 @@ class MainFragment : Fragment(), Injectable {
     }
 
     private fun subscribeViewModel() {
-        viewModel.images.observe(viewLifecycleOwner, Observer {
-            Log.e("images", it.toString())
+        viewModel.im.observe(viewLifecycleOwner, {
+            Log.e("images from bd", it.toString())
             imageAdapter.submitList(it)
         })
     }

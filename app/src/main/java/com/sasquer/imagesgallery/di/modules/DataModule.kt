@@ -1,6 +1,10 @@
 package com.sasquer.imagesgallery.di.modules
 
+import androidx.room.Room
+import com.sasquer.imagesgallery.App
 import com.sasquer.imagesgallery.BuildConfig
+import com.sasquer.imagesgallery.data.db.AppDatabase
+import com.sasquer.imagesgallery.data.db.enteties.ImagesDao
 import com.sasquer.imagesgallery.data.interactor.ImagesInteractor
 import com.sasquer.imagesgallery.data.interactor.ImagesInteractorImpl
 import com.sasquer.imagesgallery.data.network.ImagesApi
@@ -21,7 +25,8 @@ import java.util.concurrent.TimeUnit
 @Module(
     includes = [
         DataModule.RepositoryModule::class,
-        DataModule.RemoteModule::class
+        DataModule.RemoteModule::class,
+        DataModule.LocalModule::class
     ]
 )
 interface DataModule {
@@ -66,6 +71,29 @@ interface DataModule {
 
             @Provides
             fun provideWeatherApi(retrofit: Retrofit): ImagesApi = retrofit.create()
+        }
+    }
+
+    @Module(includes = [LocalModule.DatabaseModule::class])
+    interface LocalModule {
+
+        @Module
+        class DatabaseModule {
+
+            @Provides
+            fun provideOpenWeatherMapDatabase(app: App): AppDatabase {
+                return Room.databaseBuilder(
+                    app.applicationContext,
+                    AppDatabase::class.java,
+                    "app.db"
+                )
+                    .fallbackToDestructiveMigration()
+                    .build()
+            }
+
+            @Provides
+            fun provideImagesDao(database: AppDatabase): ImagesDao = database.imagesDao()
+
         }
     }
 }
