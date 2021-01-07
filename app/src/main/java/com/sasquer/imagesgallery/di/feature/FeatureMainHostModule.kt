@@ -11,7 +11,8 @@ interface FeatureMainHostModule {
     @PerActivity
     @ContributesAndroidInjector(
         modules = [
-            FeatureMainModule::class
+            FeatureMainModule::class,
+            FeatureImageDetailsModule::class
         ]
     )
     fun mainActivityInjector(): MainActivity

@@ -24,4 +24,9 @@ class ImagesRepositoryImpl @Inject constructor(
     override fun getStoredImages(): LiveData<List<ImageInfo>> {
         return imagesDao.getAllImages()
     }
+
+    override fun getImageById(imageId: String): LiveData<ImageInfo> {
+        return imagesDao.getImageById(imageId = imageId)
+    }
+
 }

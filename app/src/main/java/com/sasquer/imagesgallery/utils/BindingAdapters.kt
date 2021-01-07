@@ -13,9 +13,10 @@ fun View.bindVisibility(visibility: Boolean) {
 
 @BindingAdapter("bindImage")
 fun ImageView.bindImage(url: String) {
-    Picasso.get()
-        .load(url)
-        .placeholder(R.drawable.ic_placeholder_image)
-        .error(R.drawable.ic_error_image)
-        .into(this)
+    if (url.isNotEmpty())
+        Picasso.get()
+            .load(url)
+            .placeholder(R.drawable.ic_placeholder_image)
+            .error(R.drawable.ic_error_image)
+            .into(this)
 }

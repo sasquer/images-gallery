@@ -11,6 +11,19 @@
         android:label="@string/main_fragment_label"
         tools:layout="@layout/fragment_main">
 
+        <action
+            android:id="@+id/action_MainFragment_to_ImageDetailsFragment"
+            app:destination="@id/ImageDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ImageDetailsFragment"
+        android:name="com.sasquer.imagesgallery.ui.imagedetails.ImageDetailsFragment"
+        android:label="fragment_image_details"
+        tools:layout="@layout/fragment_image_details">
+
+        <argument
+            android:name="imageId"
+            app:argType="string" />
     </fragment>
 
 </navigation>

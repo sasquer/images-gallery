@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.sasquer.imagesgallery.ui.imagedetails.ImageDetailsViewModel" />
+
+        <variable
+            name="item"
+            type="com.sasquer.imagesgallery.data.db.enteties.ImageInfo" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.imagedetails.ImageDetailsFragment">
+
+        <ImageView
+            android:id="@+id/btnClose"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="end"
+            android:layout_margin="8dp"
+            android:src="@drawable/ic_close" />
+
+        <ImageView
+            bindImage="@{item.original}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:scaleType="center" />
+
+    </FrameLayout>
+</layout>

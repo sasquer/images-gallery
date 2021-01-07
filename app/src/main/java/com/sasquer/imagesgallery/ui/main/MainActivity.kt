@@ -1,6 +1,7 @@
 package com.sasquer.imagesgallery.ui.main
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -21,6 +22,9 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, HasNavController {
 
     private val destinationChangeListener =
         NavController.OnDestinationChangedListener { controller, destination, arguments ->
+            if (destination.id == R.id.ImageDetailsFragment)
+                toolbar.visibility = View.GONE
+            else toolbar.visibility = View.VISIBLE
             invalidateOptionsMenu()
         }
 

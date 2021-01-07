@@ -8,4 +8,5 @@ interface ImagesInteractor {
     fun getRemoteImages(page: Int): Single<List<ImageInfo>>
     fun saveImages(images: List<ImageInfo>)
     fun getImages(): LiveData<List<ImageInfo>>
+    fun getImageById(imageId: String): LiveData<ImageInfo>
 }

@@ -24,4 +24,8 @@ class ImagesInteractorImpl @Inject constructor(
     override fun getImages(): LiveData<List<ImageInfo>> {
         return repository.getStoredImages()
     }
+
+    override fun getImageById(imageId: String): LiveData<ImageInfo> {
+        return repository.getImageById(imageId)
+    }
 }

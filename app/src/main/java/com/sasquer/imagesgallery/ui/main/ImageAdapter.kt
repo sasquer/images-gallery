@@ -10,7 +10,8 @@ import com.sasquer.imagesgallery.R
 import com.sasquer.imagesgallery.data.db.enteties.ImageInfo
 import com.sasquer.imagesgallery.databinding.ListItemImageBinding
 
-class ImageAdapter : ListAdapter<ImageInfo, ImageAdapter.ViewHolder>(DIFF_CALLBACK) {
+class ImageAdapter(private val onItemListener: OnItemListener) :
+    ListAdapter<ImageInfo, ImageAdapter.ViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding: ListItemImageBinding = DataBindingUtil
@@ -28,6 +29,10 @@ class ImageAdapter : ListAdapter<ImageInfo, ImageAdapter.ViewHolder>(DIFF_CALLBA
 
         fun bind(item: ImageInfo) {
             binding.item = item
+
+            binding.root.setOnClickListener {
+                onItemListener.onItemClick(item)
+            }
         }
     }
 
@@ -43,5 +48,9 @@ class ImageAdapter : ListAdapter<ImageInfo, ImageAdapter.ViewHolder>(DIFF_CALLBA
                 return oldItem.id == newItem.id
             }
         }
+    }
+
+    interface OnItemListener {
+        fun onItemClick(image: ImageInfo)
     }
 }

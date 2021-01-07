@@ -1,6 +1,7 @@
 package com.sasquer.imagesgallery.navigation
 
 import androidx.navigation.NavController
+import com.sasquer.imagesgallery.ui.main.MainFragmentDirections
 import javax.inject.Inject
 
 class NavigationImpl @Inject constructor() : Navigation {
@@ -12,5 +13,16 @@ class NavigationImpl @Inject constructor() : Navigation {
 
     override fun unbind() {
         navController = null
+    }
+
+    override fun actionImageDetailsFromMain(imageId: String) {
+        val action = MainFragmentDirections.actionMainFragmentToImageDetailsFragment(
+            imageId
+        )
+        navController?.navigate(action)
+    }
+
+    override fun actionBackMainFromImageDetails() {
+        navController?.popBackStack()
     }
 }

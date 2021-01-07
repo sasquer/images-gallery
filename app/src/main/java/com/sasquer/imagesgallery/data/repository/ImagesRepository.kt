@@ -7,8 +7,7 @@ import io.reactivex.Single
 
 interface ImagesRepository {
     fun getRemoteImages(page: Int): Single<List<ImagesResponse>>
-
     fun saveImages(images: List<ImageInfo>)
-
     fun getStoredImages(): LiveData<List<ImageInfo>>
+    fun getImageById(imageId: String): LiveData<ImageInfo>
 }

@@ -11,7 +11,7 @@ class MainViewModel(
     private val interactor: ImagesInteractor
 ) : BaseViewModel() {
 
-    val im: LiveData<List<ImageInfo>> = interactor.getImages()
+    val images: LiveData<List<ImageInfo>> = interactor.getImages()
 
     init {
         loadImages()

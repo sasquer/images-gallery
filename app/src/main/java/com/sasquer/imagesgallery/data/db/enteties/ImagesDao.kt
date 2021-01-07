@@ -16,5 +16,5 @@ interface ImagesDao {
     fun getAllImages(): LiveData<List<ImageInfo>>
 
     @Query("SELECT * FROM images_table WHERE id IN(:imageId)")
-    fun getImageById(imageId: Int): ImageInfo
+    fun getImageById(imageId: String): LiveData<ImageInfo>
 }
