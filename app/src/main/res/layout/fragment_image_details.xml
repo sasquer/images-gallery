@@ -5,10 +5,6 @@
     <data>
 
         <variable
-            name="viewModel"
-            type="com.sasquer.imagesgallery.ui.imagedetails.ImageDetailsViewModel" />
-
-        <variable
             name="item"
             type="com.sasquer.imagesgallery.data.db.enteties.ImageInfo" />
 

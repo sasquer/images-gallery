@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class ImagesResponse(
     @SerializedName("id") val id: String? = null,
-    @SerializedName("downloads") val downloads: Long? = null,
+    @SerializedName("likes") val likes: Long? = null,
     @SerializedName("description") val description: String? = null,
     @SerializedName("urls") val urls: ImageUrls? = null
 )

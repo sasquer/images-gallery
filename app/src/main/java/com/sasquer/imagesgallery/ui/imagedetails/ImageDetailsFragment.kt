@@ -46,8 +46,6 @@ class ImageDetailsFragment : Fragment(), Injectable {
         subscribeViewModel()
 
         binding.item = ImageInfo()
-        binding.viewModel = viewModel
-
         binding.setLifecycleOwner { lifecycle }
     }
 

@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class ImageInfo(
     @PrimaryKey
     val id: String = "",
-    val downloads: Long = 0,
+    val likes: Long = 0,
     val description: String = "",
     val original: String = "",
     val thumb: String = ""

@@ -8,7 +8,7 @@ class ImageMapper @Inject constructor() : BaseMapper<ImageInfo, ImagesResponse> 
     override fun map(from: ImagesResponse): ImageInfo = with(from) {
         ImageInfo(
             id = id ?: "",
-            downloads = downloads ?: 0,
+            likes = likes ?: 0,
             description = description ?: "",
             original = urls?.regular ?: "",
             thumb = urls?.thumb ?: ""
