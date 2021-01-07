@@ -66,6 +66,9 @@ dependencies {
     // RecyclerView
     implementation "com.android.support:recyclerview-v7:$android_support_version"
 
+    // Picasso
+    implementation "com.squareup.picasso:picasso:$picasso_version"
+
     //network logging
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
 

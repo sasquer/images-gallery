@@ -1,12 +1,12 @@
 package com.sasquer.imagesgallery.data.mapper
 
 import com.sasquer.imagesgallery.data.ImagesResponse
-import com.sasquer.imagesgallery.data.db.enteties.Image
+import com.sasquer.imagesgallery.data.db.enteties.ImageInfo
 import javax.inject.Inject
 
-class ImageMapper @Inject constructor() : BaseMapper<Image, ImagesResponse> {
-    override fun map(from: ImagesResponse): Image = with(from) {
-        Image(
+class ImageMapper @Inject constructor() : BaseMapper<ImageInfo, ImagesResponse> {
+    override fun map(from: ImagesResponse): ImageInfo = with(from) {
+        ImageInfo(
             id = id ?: "",
             downloads = downloads ?: 0,
             description = description ?: "",

@@ -2,7 +2,7 @@ package com.sasquer.imagesgallery.ui.main
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.sasquer.imagesgallery.data.db.enteties.Image
+import com.sasquer.imagesgallery.data.db.enteties.ImageInfo
 import com.sasquer.imagesgallery.data.interactor.ImagesInteractor
 import com.sasquer.imagesgallery.ui.base.BaseViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -12,7 +12,7 @@ class MainViewModel(
     private val interactor: ImagesInteractor
 ) : BaseViewModel() {
 
-    val images: MutableLiveData<List<Image>> = MutableLiveData()
+    val images: MutableLiveData<List<ImageInfo>> = MutableLiveData()
 
     init {
         loadImages()

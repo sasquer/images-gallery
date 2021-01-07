@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.sasquer.imagesgallery.R
 import com.sasquer.imagesgallery.databinding.FragmentMainBinding
 import com.sasquer.imagesgallery.di.Injectable
@@ -27,6 +28,8 @@ class MainFragment : Fragment(), Injectable {
 
     private val viewModel by viewModels<MainViewModel> { factory }
 
+    private val imageAdapter = ImageAdapter()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,6 +41,12 @@ class MainFragment : Fragment(), Injectable {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.rvImages.run {
+            layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+            setHasFixedSize(true)
+            adapter = imageAdapter
+        }
+
         subscribeViewModel()
 
         binding.setLifecycleOwner { lifecycle }
@@ -47,6 +56,7 @@ class MainFragment : Fragment(), Injectable {
     private fun subscribeViewModel() {
         viewModel.images.observe(viewLifecycleOwner, Observer {
             Log.e("images", it.toString())
+            imageAdapter.submitList(it)
         })
     }
 }
